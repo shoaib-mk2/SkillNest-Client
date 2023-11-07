@@ -64,7 +64,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <NavLink to="/" className="text-2xl md:text-4xl font-extrabold flex items-center"><img className="w-12 mr-2" src="" alt="" />OnMarPlace</NavLink>
+                    <NavLink to="/" className="text-2xl md:text-4xl font-extrabold flex items-center"><img className="w-12 mr-2" src="" alt="" />SkillNest</NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4 text-lg">
