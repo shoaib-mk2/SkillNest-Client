@@ -1,7 +1,17 @@
-import { Link, NavLink } from 'react-router-dom';
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 import { MdLogout } from "react-icons/md";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => console.log('user logged out successfully'))
+            .catch(error => console.error(error))
+    }
 
     const navLinks = <>
         <li>
@@ -52,7 +62,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="dark:bg-black dark:text-white">
+        <div className="">
             <div className="navbar md:w-4/5 md:mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -72,25 +82,28 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar border-2 border-[#ff7700]">
-                            <div className="w-10 rounded-full">
-                                <img src={"./user-default-pic.svg"} alt="User Profile" />
+                    {
+                        user ?
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar border-2 border-[#ff7700]">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL ? user.photoURL : "./user-default-pic.svg"} alt="User Profile" />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="dark:text-black mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 border-2 border-[#ff7700] font-bold rounded-box w-52">
+                                    <li className="border rounded-lg">
+                                        <a className="justify-between">
+                                            {user?.displayName}
+                                        </a>
+                                    </li>
+                                    <li className="border rounded-lg"><a onClick={handleLogOut}>Logout<MdLogout></MdLogout></a></li>
+                                </ul>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="dark:text-black mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 border-2 border-[#ff7700] font-bold rounded-box w-52">
-                            <li className="border rounded-lg">
-                                <a className="justify-between">
-                                    {/* {user?.displayName} */}
-                                </a>
-                            </li>
-                            <li className="border rounded-lg"><a>Logout<MdLogout></MdLogout></a></li>
-                        </ul>
-                    </div>
-
-                    <Link className="btn btn-sm md:btn-md font-bold shadow-md shadow-[#ff7700]" to="/login">
-                        Log In / Sign Up
-                    </Link>
+                            :
+                            <Link className="btn btn-sm md:btn-md font-bold shadow-md shadow-[#ff7700]" to="/login">
+                                Log In / Sign Up
+                            </Link>
+                    }
                 </div>
             </div>
         </div>

@@ -126,7 +126,7 @@ const Register = () => {
                             <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn text-white hover:text-black bg-lime-600">Register</button>
+                            <button className="btn text-base text-white hover:text-black bg-lime-600">Register</button>
                         </div>
                     </form>
                 </div>
