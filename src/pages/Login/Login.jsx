@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
-import { BsGoogle } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -69,7 +69,7 @@ const Login = () => {
                         <p>Welcome back! Sign in to your account</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body" onSubmit={handleLogin}>
+                        <form className="card-body pb-0" onSubmit={handleLogin}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -86,12 +86,12 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn text-white hover:text-black bg-lime-600">Log In</button>
+                                <button className="btn text-base text-white hover:text-black bg-lime-600">Log In</button>
                             </div>
                         </form>
-                        <div className="flex items-center justify-center gap-2 mb-8 cursor-pointer">
-                            <BsGoogle className="text-lime-600"></BsGoogle>
-                            <p onClick={handleGoogleSignIn}>Log in with <span className="font-bold text-lime-600">Google</span></p>
+                        <div className="px-8 mb-8">
+                            <p className="text-center my-4 text-zinc-500">Or Log In With</p>
+                            <button onClick={handleGoogleSignIn} className="btn text-base text-black border-lime-600 w-full"><FcGoogle></FcGoogle> Google</button>
                         </div>
                     </div>
                     <p className="px-8 pb-4">New here? Please <Link className="text-lime-600 font-bold" to="/register">Register</Link></p>
