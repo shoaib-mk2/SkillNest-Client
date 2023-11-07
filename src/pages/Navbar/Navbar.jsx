@@ -8,7 +8,7 @@ const Navbar = () => {
             <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
                 }>
                 Home
             </NavLink>
@@ -17,7 +17,7 @@ const Navbar = () => {
             <NavLink
                 to="/addJob"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
                 }>
                 Add Job
             </NavLink>
@@ -26,7 +26,7 @@ const Navbar = () => {
             <NavLink
                 to="/myPostedJobs"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
                 }>
                 My Posted Jobs
             </NavLink>
@@ -35,7 +35,7 @@ const Navbar = () => {
             <NavLink
                 to="/myBids"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
                 }>
                 My Bids
             </NavLink>
@@ -44,7 +44,7 @@ const Navbar = () => {
             <NavLink
                 to="/bidRequests"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-[#ff7700]" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
                 }>
                 Bid Requests
             </NavLink>
