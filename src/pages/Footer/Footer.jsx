@@ -5,7 +5,7 @@ const Footer = () => {
             <footer className="md:w-4/5 mx-auto footer p-10">
                 <nav>
                     <header className="footer-title">Contacts</header>
-                    <p className="">(+420) 2441139</p>
+                    <p className="">(+420) 244113975</p>
                     <p className="">Apt. 591 83505 Connelly Plains, Malenafurt, DE 22499</p>
                 </nav>
                 <nav>
