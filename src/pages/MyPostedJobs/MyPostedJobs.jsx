@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import MyPostedJob from "./MyPostedJob";
 
 const MyPostedJobs = () => {
 
@@ -14,8 +15,13 @@ const MyPostedJobs = () => {
     }, [url])
 
     return (
-        <div>
-            <h2 className="text-3xl">My Posted Jobs: {myPostedJobs.length}</h2>
+        <div className="w-4/5 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-8">
+            {
+                myPostedJobs.map(myPostedJob => <MyPostedJob
+                    key={myPostedJob._id}
+                    myPostedJob={myPostedJob}
+                ></MyPostedJob>)
+            }
         </div>
     );
 };
