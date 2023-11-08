@@ -21,7 +21,7 @@ const UpdateJob = () => {
         console.log(updateJob);
 
         // send data to the server
-        fetch(`http://localhost:5000/job/${_id}`, {
+        fetch(`http://localhost:5000/jobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
