@@ -27,7 +27,7 @@ const MyPostedJob = ({ myPostedJob, myPostedJobs, setMyPostedJobs }) => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your product has been deleted.',
+                                'Your Job has been deleted.',
                                 'success'
                             )
                             const remaining = myPostedJobs.filter(myPJ => myPJ._id !== _id);

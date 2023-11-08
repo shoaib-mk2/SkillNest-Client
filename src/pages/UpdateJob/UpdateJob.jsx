@@ -31,7 +31,7 @@ const UpdateJob = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // showing sweet alert after successfully added the product to the DB 
+                // showing sweet alert after successfully added the data to the DB 
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
@@ -41,7 +41,7 @@ const UpdateJob = () => {
                     })
                 }
                 window.history.back(); // navigate back to the previous page in the browser's history
-                form.reset(); // reset form value after successfully added the product to the DB
+                form.reset(); // reset form value after successfully added the data to the DB
             })
     }
 

@@ -33,7 +33,7 @@ const AddJob = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // showing sweet alert after successfully added the product to the DB 
+                // showing sweet alert after successfully added the data to the DB 
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -42,7 +42,7 @@ const AddJob = () => {
                         confirmButtonText: 'Cool'
                     })
                 }
-                form.reset(); // reset form value after successfully added the product to the DB
+                form.reset(); // reset form value after successfully added the data to the DB
                 navigate('/myPostedJobs');
             })
     }
