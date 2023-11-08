@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
 
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     console.log('Add Jobbb', user);
 
@@ -23,27 +25,28 @@ const AddJob = () => {
         console.log(newJob);
 
         // send data to the server
-        // fetch('http://localhost:5000/jobs', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newJob)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         // showing sweet alert after successfully added the product to the DB 
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Product Added Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //         form.reset(); // reset form value after successfully added the product to the DB
-        //     })
+        fetch('http://localhost:5000/jobs', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // showing sweet alert after successfully added the product to the DB 
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Job Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+                form.reset(); // reset form value after successfully added the product to the DB
+                navigate('/myPostedJobs');
+            })
     }
 
     return (
@@ -93,15 +96,15 @@ const AddJob = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Maximum Price</span>
-                            </label>
-                            <input type="number" name="max_price" placeholder="Maximum price for this Job" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
                                 <span className="label-text">Minimum Price</span>
                             </label>
                             <input type="number" name="min_price" placeholder="Minimum price for this Job" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Maximum Price</span>
+                            </label>
+                            <input type="number" name="max_price" placeholder="Maximum price for this Job" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn bg-lime-600 text-white font-bold hover:text-black">Add this Job</button>
