@@ -18,7 +18,7 @@ const Navbar = () => {
             <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-lime-600 font-bold text-lime-600" : "font-bold "
                 }>
                 Home
             </NavLink>
@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink
                 to="/addJob"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-lime-600 font-bold text-lime-600" : "font-bold "
                 }>
                 Add Job
             </NavLink>
@@ -38,7 +38,7 @@ const Navbar = () => {
                 <NavLink
                     to="/myPostedJobs"
                     className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                        isPending ? "pending" : isActive ? "border-b-2 border-lime-600 font-bold text-lime-600" : "font-bold "
                     }>
                     My Posted Jobs
                 </NavLink>
@@ -48,7 +48,7 @@ const Navbar = () => {
             <NavLink
                 to="/myBids"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-lime-600 font-bold text-lime-600" : "font-bold "
                 }>
                 My Bids
             </NavLink>
@@ -57,7 +57,7 @@ const Navbar = () => {
             <NavLink
                 to="/bidRequests"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                    isPending ? "pending" : isActive ? "border-b-2 border-lime-600 font-bold text-lime-600" : "font-bold "
                 }>
                 Bid Requests
             </NavLink>
@@ -88,12 +88,12 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="dropdown dropdown-end">
-                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar border-2 border-[#ff7700]">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar border-2 border-lime-600">
                                     <div className="w-10 rounded-full">
                                         <img src={user?.photoURL ? user.photoURL : "./user-default-pic.svg"} alt="User Profile" />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="dark:text-black mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 border-2 border-[#ff7700] font-bold rounded-box w-52">
+                                <ul tabIndex={0} className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 border-2 border-lime-600 font-bold rounded-box w-52">
                                     <li className="border rounded-lg">
                                         <a className="justify-between">
                                             {user?.displayName}
@@ -103,7 +103,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                             :
-                            <Link className="btn btn-sm md:btn-md font-bold shadow-md shadow-[#ff7700]" to="/login">
+                            <Link className="btn btn-sm md:btn-md font-bold shadow-md shadow-lime-600" to="/login">
                                 Log In / Sign Up
                             </Link>
                     }

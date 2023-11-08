@@ -26,11 +26,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addJob",
-                element: <AddJob></AddJob>
+                element: <PrivateRoute><AddJob></AddJob></PrivateRoute>
             },
             {
                 path: "/updateJob/:id",
-                element: <UpdateJob></UpdateJob>,
+                element: <PrivateRoute><UpdateJob></UpdateJob></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/jobById/${params.id}`)
             },
             {
@@ -39,16 +39,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/jobDetails/:id",
-                element: <JobDetails></JobDetails>,
+                element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/jobById/${params.id}`)
             },
             {
                 path: "/myBids",
-                element: <MyBids></MyBids>
+                element: <PrivateRoute><MyBids></MyBids></PrivateRoute>
             },
             {
                 path: "/bidRequests",
-                element: <BidRequests></BidRequests>
+                element: <PrivateRoute><BidRequests></BidRequests></PrivateRoute>
             },
             {
                 path: "/login",
