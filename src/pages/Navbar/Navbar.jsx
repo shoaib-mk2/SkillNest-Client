@@ -32,15 +32,18 @@ const Navbar = () => {
                 Add Job
             </NavLink>
         </li>
-        <li>
-            <NavLink
-                to="/myPostedJobs"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
-                }>
-                My Posted Jobs
-            </NavLink>
-        </li>
+        {
+            user &&
+            <li>
+                <NavLink
+                    to="/myPostedJobs"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "border-b-2 border-[#ff7700] font-bold text-lime-600" : "font-bold "
+                    }>
+                    My Posted Jobs
+                </NavLink>
+            </li>
+        }
         <li>
             <NavLink
                 to="/myBids"

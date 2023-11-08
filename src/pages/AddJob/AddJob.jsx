@@ -55,7 +55,6 @@ const AddJob = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Add a Job!</h1>
                     <p className="py-6">Welcome to our "Add Job" page, where you can effortlessly add your Job's details to our growing online marketplace community. Whether you're a Boss, a Employer, or simply want to add a Job, this page is designed to make the process easy and enjoyable.</p>
-                    {/* <img src="/addCar.png" alt="" /> */}
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleAddJob} className="card-body">
