@@ -18,26 +18,34 @@ const MyBids = () => {
 
     return (
         <div className="min-h-screen">
-            <div className="overflow-x-auto w-4/5 mx-auto">
-                <h2 className="text-2xl font-semibold my-10 p-3 text-center border-2">My Bids</h2>
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Job Title</th>
-                            <th>Email</th>
-                            <th>Deadline</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            myBids.map(myBid => <MyBidsRow key={myBid._id} myBid={myBid}></MyBidsRow>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+            {
+                myBids.length > 0 ?
+                    <div className="overflow-x-auto w-4/5 mx-auto">
+                        <h2 className="text-2xl font-semibold my-10 p-3 text-center border-2">My Bids</h2>
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Email</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    myBids.map(myBid => <MyBidsRow key={myBid._id} myBid={myBid}></MyBidsRow>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    :
+                    <div className="w-4/5 mx-auto">
+                        <h2 className="text-2xl font-semibold my-10 p-3 text-center border-2">My Bids</h2>
+                        <p className="text-2xl font-medium text-center mt-5">You are not bidding any job.</p>
+                    </div>
+            }
         </div>
     );
 };
