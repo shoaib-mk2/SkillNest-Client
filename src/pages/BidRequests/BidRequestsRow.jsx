@@ -12,18 +12,18 @@ const BidRequestsRow = ({ bidRequest, handleAcceptBid, handleRejectBid }) => {
                 {
                     status === 'in progress'
                         ?
-                        <span>in progress</span>
+                        <span className="bg-yellow-700 p-1 text-white">in progress</span>
                         :
                         status === 'rejected'
                             ?
-                            <span>rejected</span>
+                            <span className="bg-red-700 p-1 text-white">rejected</span>
                             :
                             <span>pending</span>
                 }
             </td>
             <th>
                 <button onClick={() => handleAcceptBid(_id)} className={`btn btn-xs bg-green-700 text-white font-bold hover:text-black md:btn-md ${status === 'in progress' || status === 'rejected' ? 'hidden' : ''}`}>Accept</button>
-                <button onClick={() => handleRejectBid(_id)} className={`btn btn-xs bg-red-700 text-white font-bold hover:text-black md:btn-md ${status === 'in progress' || status === 'rejected' ? 'hidden' : ''}`}>Reject</button>
+                <button onClick={() => handleRejectBid(_id)} className={`btn btn-xs ml-2 bg-red-700 text-white font-bold hover:text-black md:btn-md ${status === 'in progress' || status === 'rejected' ? 'hidden' : ''}`}>Reject</button>
             </th>
         </tr>
     );

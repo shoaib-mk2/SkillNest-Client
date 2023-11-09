@@ -16,6 +16,28 @@ const MyBids = () => {
 
     console.log('My Bids', myBids);
 
+    const handleCompleteMyBid = id => {
+        fetch(`http://localhost:5000/bids/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'complete' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = myBids.filter(myBid => myBid._id !== id);
+                    const updated = myBids.find(myBid => myBid._id === id);
+                    updated.status = 'complete'
+                    const newMyBids = [updated, ...remaining];
+                    setMyBids(newMyBids);
+                }
+            })
+    }
+
     return (
         <div className="min-h-screen">
             {
@@ -35,7 +57,11 @@ const MyBids = () => {
                             </thead>
                             <tbody>
                                 {
-                                    myBids.map(myBid => <MyBidsRow key={myBid._id} myBid={myBid}></MyBidsRow>)
+                                    myBids.map(myBid => <MyBidsRow
+                                        key={myBid._id}
+                                        myBid={myBid}
+                                        handleCompleteMyBid={handleCompleteMyBid}
+                                    ></MyBidsRow>)
                                 }
                             </tbody>
                         </table>
