@@ -38,6 +38,28 @@ const BidRequests = () => {
             })
     }
 
+    const handleRejectBid = id => {
+        fetch(`http://localhost:5000/bids/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'rejected' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = bidRequests.filter(bidRequest => bidRequest._id !== id);
+                    const updated = bidRequests.find(bidRequest => bidRequest._id === id);
+                    updated.status = 'rejected'
+                    const newBidRequests = [updated, ...remaining];
+                    setBidRequests(newBidRequests);
+                }
+            })
+    }
+
     return (
         <div className="min-h-screen">
             {
@@ -61,6 +83,7 @@ const BidRequests = () => {
                                         key={bidRequest._id}
                                         bidRequest={bidRequest}
                                         handleAcceptBid={handleAcceptBid}
+                                        handleRejectBid={handleRejectBid}
                                     ></BidRequestsRow>)
                                 }
                             </tbody>

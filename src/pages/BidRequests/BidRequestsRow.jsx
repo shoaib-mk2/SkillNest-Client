@@ -1,5 +1,5 @@
 
-const BidRequestsRow = ({ bidRequest, handleAcceptBid }) => {
+const BidRequestsRow = ({ bidRequest, handleAcceptBid, handleRejectBid }) => {
 
     const { _id, jobOwnerEmail, jobTitle, deadline, description, category, max_price, min_price, biddingAmount, bidderEmail, status } = bidRequest;
 
@@ -11,15 +11,19 @@ const BidRequestsRow = ({ bidRequest, handleAcceptBid }) => {
             <td>
                 {
                     status === 'in progress'
-                    ?
-                    <span>in progress</span>
-                    :
-                    <span>pending</span>
+                        ?
+                        <span>in progress</span>
+                        :
+                        status === 'rejected'
+                            ?
+                            <span>rejected</span>
+                            :
+                            <span>pending</span>
                 }
             </td>
             <th>
-                <button onClick={() => handleAcceptBid(_id)} className="btn btn-xs bg-green-700 text-white font-bold hover:text-black md:btn-md">Accept</button>
-                <button className="btn btn-xs bg-red-700 text-white font-bold hover:text-black md:btn-md ml-4">Reject</button>
+                <button onClick={() => handleAcceptBid(_id)} className={`btn btn-xs bg-green-700 text-white font-bold hover:text-black md:btn-md ${status === 'in progress' || status === 'rejected' ? 'hidden' : ''}`}>Accept</button>
+                <button onClick={() => handleRejectBid(_id)} className={`btn btn-xs bg-red-700 text-white font-bold hover:text-black md:btn-md ${status === 'in progress' || status === 'rejected' ? 'hidden' : ''}`}>Reject</button>
             </th>
         </tr>
     );
