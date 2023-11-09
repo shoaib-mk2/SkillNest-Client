@@ -16,6 +16,28 @@ const BidRequests = () => {
 
     console.log('My Bids', bidRequests);
 
+    const handleAcceptBid = id => {
+        fetch(`http://localhost:5000/bids/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'in progress' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = bidRequests.filter(bidRequest => bidRequest._id !== id);
+                    const updated = bidRequests.find(bidRequest => bidRequest._id === id);
+                    updated.status = 'in progress'
+                    const newBidRequests = [updated, ...remaining];
+                    setBidRequests(newBidRequests);
+                }
+            })
+    }
+
     return (
         <div className="min-h-screen">
             {
@@ -24,7 +46,7 @@ const BidRequests = () => {
                         <h2 className="text-2xl font-semibold my-10 p-3 text-center border-2">Bid Requests</h2>
                         <table className="table">
                             {/* head */}
-                            <thead className="bg-lime-600 text-white">
+                            <thead>
                                 <tr>
                                     <th>Job Title</th>
                                     <th>Bidder Email</th>
@@ -33,9 +55,13 @@ const BidRequests = () => {
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-lime-200">
+                            <tbody>
                                 {
-                                    bidRequests.map(bidRequest => <BidRequestsRow key={bidRequest._id} bidRequest={bidRequest}></BidRequestsRow>)
+                                    bidRequests.map(bidRequest => <BidRequestsRow
+                                        key={bidRequest._id}
+                                        bidRequest={bidRequest}
+                                        handleAcceptBid={handleAcceptBid}
+                                    ></BidRequestsRow>)
                                 }
                             </tbody>
                         </table>
