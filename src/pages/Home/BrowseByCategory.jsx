@@ -7,8 +7,9 @@ const BrowseByCategory = ({ allJobs }) => {
     return (
         <div className=''>
             <div className='w-4/5 mx-auto my-10'>
+                <h2 className='text-2xl md:text-4xl font-bold text-center my-4'>Browse By Category</h2>
                 <Tabs>
-                    <TabList className={"text-center border-2 border-lime-600"}>
+                    <TabList className={"text-center font-bold border-2 border-lime-600"}>
                         <Tab>Web Development</Tab>
                         <Tab>Digital Marketing</Tab>
                         <Tab>Graphic Design</Tab>

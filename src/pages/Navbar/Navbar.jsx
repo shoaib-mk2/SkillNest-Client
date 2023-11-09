@@ -74,7 +74,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <NavLink to="/" className="text-2xl md:text-4xl font-extrabold flex items-center"><img className="w-12 mr-2" src="" alt="" />SkillNest</NavLink>
+                    <NavLink to="/" className="text-2xl md:text-4xl font-extrabold flex items-center"><img className="w-12 mr-2" src="/logo.png" alt="" />SkillNest</NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-4 text-lg">
@@ -90,7 +90,7 @@ const Navbar = () => {
                                         <img src={user?.photoURL ? user?.photoURL : "./user-default-pic.svg"} alt="User Profile" />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content bg-base-100 border-2 border-lime-600 font-bold rounded-box w-52">
+                                <ul tabIndex={0} className="mt-3 z-[2] p-2 shadow menu menu-sm dropdown-content border-2 bg-lime-600 font-bold rounded-box w-52">
                                     <li className="border rounded-lg">
                                         <a className="justify-between">
                                             {user?.displayName}
