@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ const Login = () => {
 
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -21,7 +22,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 e.target.reset();
-                navigate("/"); // redirect user to home page after successful sign in
+                navigate(location?.state ? location?.state : "/"); // redirect user to the private route he/she wanted to go, otherwise redirect to home page after successful sign in
             })
             .catch(error => {
                 console.error(error);
@@ -43,7 +44,7 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
-                navigate("/");
+                navigate(location?.state ? location?.state : "/"); // redirect user to the private route he/she wanted to go, otherwise redirect to home page after successful sign in
             })
             .catch(error => {
                 console.error(error);
